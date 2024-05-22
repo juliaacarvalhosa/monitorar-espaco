@@ -1,2 +1,4 @@
 # Procedure para Monitorar Espaço Livre
-Essa _procedure_, utilizada para monitorar e enviar alertas por e-mail sobre o espaço livre em disco, realiza uma consulta em uma _View_ que combina duas tabelas, excluindo determinados servidores que são identificados por meio de uma _Flag_ criada na tabela Volume.
+Esta procedura é empregada para monitorar e emitir alertas via e-mail quando o percentual de espaço livre atinge ou ultrapassa um limiar pré-estabelecido. Ela efetua uma consulta em uma *View* que integra informações de duas tabelas distintas, excluindo certos servidores que são identificados através de um critério específico.
+
+_Flag_ criada na tabela Volume.
