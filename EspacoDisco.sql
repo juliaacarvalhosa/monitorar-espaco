@@ -80,8 +80,10 @@ BEGIN
             <style type="text/css">
                 body { font-family: Arial, sans-serif; margin: 0; padding: 0; width: 100%;}
 				table { width: 40%; border-collapse: collapse; margin: 20px auto; }
-				th, td { border: 1px solid black; padding: 5px; text-align: center; }
-				th { background-color: #f2f2f2; }
+				thead { background: #001f3f; border: 1px solid #ddd; }
+                th { padding: 0; font-weight: bold; border: 1px solid #000; color: #fff; }
+                tr { padding: 0; }
+                td { padding: 5px; border: 1px solid #cacaca; margin:0; text-align: center; }
 				img { max-width: 100%; height: auto; display: block; margin: 0 auto; }
             </style>
         </head>
