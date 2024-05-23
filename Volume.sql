@@ -4,7 +4,7 @@ CREATE TABLE [dbo].[Volume](
 	[CapacidadeGB] [numeric](10, 2) NOT NULL,
 	[Coleta] [smalldatetime] NULL,
     	[ExcluirMonitoramento] BIT DEFAULT 0, -- Flag caso exista a necessidade de exlusão de algum servidor em alguma consulta
-    	[LimiteAlerta] INT DEFAULT 5 -- Threshold com o limite 5
+    	[LimiteAlerta] INT -- Threshold com o limite 5% da Capacidade Total (CapacidadeGB)
 CONSTRAINT [PK_Volume] PRIMARY KEY CLUSTERED 
 (
 	[Hostname] ASC,
