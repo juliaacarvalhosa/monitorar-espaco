@@ -1,4 +1,4 @@
 # Procedure para Monitorar Espaço Livre
-Esta procedura é empregada para monitorar e emitir alertas via e-mail quando o percentual de espaço livre atinge ou ultrapassa um limiar pré-estabelecido. Ela efetua uma consulta em uma *View* que integra informações de duas tabelas distintas, excluindo certos servidores que são identificados através de um critério específico.
+Este procedimento é utilizado para monitorar o espaço livre e emitir notificações por e-mail quando a quantidade de espaço disponível atinge ou excede um limite predefinido. Realiza-se uma consulta a uma *View*, que agrega dados de duas tabelas distintas, e exclui determinados servidores com base em critérios específicos. Uma *flag* é implementada na coluna `ExcluirMonitoramento` da tabela Volume para indicar a ocorrência desse evento.
 
-_Flag_ criada na tabela Volume.
+Adicionalmente, o procedimento envia um e-mail tanto em situações onde não há volumes com espaço livre abaixo do limite estabelecido, quanto quando os parâmetros estão dentro do esperado, servindo como uma confirmação de que tudo está operando normalmente. Ajusta-se também a informação de que o e-mail é enviado quando o espaço livre é inferior a 5% da capacidade total em gigabytes definida.
