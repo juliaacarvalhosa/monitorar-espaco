@@ -1,18 +1,7 @@
 USE [SeuBanco]
 GO
 
-/****** Object:  StoredProcedure [dbo].[Alerta_Espaco_Disco]    Script Date: 23/05/2024 11:59:25 ******/
-SET ANSI_NULLS ON
-GO
-
-SET QUOTED_IDENTIFIER ON
-GO
-
-
-USE [EBD]
-GO
-
-/****** Object:  StoredProcedure [dbo].[Alerta_Espaco_Disco]    Script Date: 24/05/2024 11:34:20 ******/
+/****** Object:  StoredProcedure [dbo].[Alerta_Espaco_Disco]    Script Date: 24/05/2024 11:37:34 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -23,7 +12,7 @@ GO
 
 
 
-CREATE   PROCEDURE [dbo].[EspacoDisco] @email VARCHAR(100)
+CREATE OR ALTER PROCEDURE [dbo].[EspacoDisco] @email VARCHAR(100)
 AS
 BEGIN
     SET NOCOUNT ON;
@@ -85,7 +74,9 @@ BEGIN
         </head>
         <body>
             <h4>Não foram encontrados volumes com espaço livre abaixo do limite especificado.</h4>
-        </body>
+			<br></br>
+				 <img src="caminho.png" width="40%">
+		</body>
         </html>';
 	
 	END
@@ -127,14 +118,16 @@ BEGIN
                      AS NVARCHAR(MAX) )
 			+'</tbody>
         </table>
+		<br></br>
+			 <img src="caminho.png" width="40%">
     </body>
 </html>'
 
 		END
 
 		EXEC msdb.dbo.sp_send_dbmail
-            @profile_name = 'ebd',
-            @recipients = 'juliavca@tcerj.tc.br',--@email,
+            @profile_name = '', -- perfil de email
+            @recipients =  @email,
             @subject = 'ALERTA - Volume do Servidor pouco espaço Livre',
             @body = @HTML,
             @body_format = 'HTML';
@@ -143,8 +136,5 @@ BEGIN
     DROP TABLE #TempResults;
 END
 GO
-
-
-
 
 
